@@ -1,0 +1,320 @@
+:root {
+  --primary-red: #ff4757;
+  --primary-blue: #1e90ff;
+  --primary-yellow: #ffa502;
+  --bg-color: #f1f2f6;
+  --text-dark: #2f3542;
+  --card-bg: #ffffff;
+  --border-color: #dfe4ea;
+  --border-light: #f1f2f6;
+  --input-bg: #ffffff;
+  --border-radius: 20px;
+  --shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
+  --font-heading: 'Fredoka', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+}
+
+html.dark {
+  --primary-red: #ff6b81;
+  --primary-blue: #3742fa;
+  --primary-yellow: #feca57;
+  --bg-color: #121212;
+  --text-dark: #f1f2f6;
+  --card-bg: #1e272e;
+  --border-color: #485460;
+  --border-light: #485460;
+  --input-bg: #2f3542;
+  --shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+/* App Container */
+.app-container {
+  max-width: 1000px;
+  /* Tablet/Desktop responsive view */
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.app-header {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 6px solid var(--primary-yellow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0 0 15px 15px;
+}
+
+.app-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+/* Back Button */
+.back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Main Area */
+.main-content {
+  flex-grow: 1;
+  padding: 24px;
+}
+
+.dashboard-hero {
+  background: linear-gradient(135deg, var(--primary-red), #e84118);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  color: white;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.dashboard-hero h2 {
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+}
+
+.hero-icon {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  opacity: 0.2;
+  transform: rotate(-15deg);
+}
+
+/* Interactive Cards */
+.card-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 0 var(--border-color);
+  border: 2px solid var(--border-light);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 0 var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+.card.red:hover {
+  box-shadow: 0 8px 0 var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.card.yellow:hover {
+  box-shadow: 0 8px 0 var(--primary-yellow);
+  border-color: var(--primary-yellow);
+}
+
+.card-icon-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.bg-blue {
+  background: var(--primary-blue);
+}
+
+.bg-red {
+  background: var(--primary-red);
+}
+
+.bg-yellow {
+  background: var(--primary-yellow);
+}
+
+.card-content h3 {
+  margin-bottom: 4px;
+  font-size: 1.2rem;
+}
+
+.card-content p {
+  color: #7f8fa6;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.btn {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 0 #1565c0;
+  /* Retro button press */
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.btn:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 #1565c0;
+}
+
+.btn-red {
+  background-color: var(--primary-red);
+  box-shadow: 0 6px 0 #c23616;
+}
+
+.btn-red:active {
+  box-shadow: 0 0 0 #c23616;
+}
+
+/* Breathing Tool Animations */
+.breathing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 60vh;
+  text-align: center;
+}
+
+.breathing-status {
+  font-size: 1.8rem;
+  font-family: var(--font-heading);
+  min-height: 45px;
+  color: var(--primary-blue);
+}
+
+.breath-circle-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.breath-circle {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-shadow: 0 0 30px rgba(30, 144, 255, 0.4);
+}
+
+.timer {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+/* Faces of Feeling */
+.emotions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.emotion-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.emotion-card:hover {
+  transform: scale(1.05);
+  border-color: var(--primary-yellow);
+  box-shadow: 0 8px 15px rgba(255, 165, 2, 0.2);
+}
+
+.emotion-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
