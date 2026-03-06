@@ -23,7 +23,7 @@ export default function FeelingCheckin() {
         localStorage.setItem('spectrum_feeling_history', JSON.stringify(history));
 
         // Redirect back to task
-        navigate(`/mission/${weekId}`);
+        navigate(-1);
     };
 
     return (

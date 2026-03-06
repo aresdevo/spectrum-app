@@ -34,6 +34,18 @@ export default function Roadmap() {
         setFeelings(savedFeelings);
     }, []);
 
+    const handleReset = () => {
+        if (window.confirm('Are you sure you want to start over? All your missions and feelings will be erased. This cannot be undone!')) {
+            localStorage.removeItem('spectrum_completed_missions');
+            localStorage.removeItem('spectrum_feeling_history');
+            for (let i = 1; i <= 10; i++) {
+                localStorage.removeItem(`spectrum_mission_data_${i}`);
+                localStorage.removeItem(`spectrum_weekly_feeling_${i}`);
+            }
+            window.location.reload();
+        }
+    };
+
     return (
         <div>
             <div className="dashboard-hero" style={{ background: 'linear-gradient(135deg, var(--primary-blue), #2980b9)' }}>
@@ -60,6 +72,17 @@ export default function Roadmap() {
                         </div>
                     </Link>
                 ))}
+            </div>
+
+            <div style={{ marginTop: '40px', marginBottom: '20px', textAlign: 'center' }}>
+                <button
+                    onClick={handleReset}
+                    style={{ background: 'transparent', color: 'var(--primary-red)', border: '2px solid var(--primary-red)', padding: '12px 24px', borderRadius: '10px', cursor: 'pointer', fontWeight: 'bold', fontSize: '1rem', transition: 'all 0.2s ease' }}
+                    onMouseOver={(e) => { e.currentTarget.style.background = 'var(--primary-red)'; e.currentTarget.style.color = '#fff'; }}
+                    onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--primary-red)'; }}
+                >
+                    Restart Your Training (Reset Progress)
+                </button>
             </div>
         </div>
     );
